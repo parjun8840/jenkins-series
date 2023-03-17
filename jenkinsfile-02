@@ -1,0 +1,38 @@
+pipeline {
+  agent {
+    kubernetes {
+      yaml '''
+        apiVersion: v1
+        kind: Pod
+        spec:
+          containers:
+          - name: go
+            image: golang:alpine3.17
+            command:
+            - cat
+            tty: true
+          - name: node
+            image: node:lts-alpine3.17
+            command:
+            - cat
+            tty: true
+        '''
+    }
+  }
+  stages {
+    stage('Run maven') {
+      steps {
+        container('go') {
+          sh 'go version'
+          sh ' echo Second Pipeline Job > Readme.txt'
+          sh 'ls -lrt'
+        }
+        container('node') {
+          sh 'npm version'
+          sh 'cat Readme.txt'
+          sh 'ls -lrt'
+        }
+      }
+    }
+  }
+}
