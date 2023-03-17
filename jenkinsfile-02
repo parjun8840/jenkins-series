@@ -11,8 +11,8 @@ pipeline {
             command:
             - cat
             tty: true
-          - name: node
-            image: node:lts-alpine3.17
+          - name: maven
+            image: maven:alpine
             command:
             - cat
             tty: true
@@ -20,15 +20,15 @@ pipeline {
     }
   }
   stages {
-    stage('Run maven') {
+    stage('Run go maven') {
       steps {
         container('go') {
           sh 'go version'
           sh ' echo Second Pipeline Job > Readme.txt'
           sh 'ls -lrt'
         }
-        container('node') {
-          sh 'npm version'
+        container('maven') {
+          sh 'mvn -version'
           sh 'cat Readme.txt'
           sh 'ls -lrt'
         }
