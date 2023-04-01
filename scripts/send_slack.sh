@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 usage() {
   echo "usage: ${0##*/} -u <SLACK_URL> -t <TEXT> -c <COLOR> -e <EMOJI> -w <GITHUB_WOFKFLOW>"
