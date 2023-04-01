@@ -7,6 +7,7 @@ usage() {
 send_slack() {
 echo "Inside Slack send function"
 echo 'payload={"text": "'${text}'", "color": "'${color}'", "icon_emoji": "'${emoji}'"}'
+echo "SLACK URL is: ${slack_url}"
 curl -X POST --data-urlencode 'payload={"text": "'${text}'", "color": "'${color}'", "icon_emoji": "'${emoji}'"}' "${slack_url}" > /dev/null 2>&1
 }
 
@@ -33,7 +34,7 @@ then
 usage
 fi
 
-[ -z "${color}" ] && icon="#00a3e0"
+[ -z "${color}" ] && color="#00a3e0"
 [ -z "${emoji}" ] && emoji=":tiger:"
 [ -z "${workflow}" ] && workflow="TBD"
 
