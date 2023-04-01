@@ -5,7 +5,7 @@ usage() {
   exit 1
 }
 
-while getopts ":e:c:a:i:t:v:s:r:z:p:w:l:" opt; do
+while getopts ":u:t:c:e:w:" opt; do
 
  case $opt in
    u) slack_url="$OPTARG"
