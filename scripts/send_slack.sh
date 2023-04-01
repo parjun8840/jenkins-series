@@ -24,6 +24,7 @@ while getopts ":u:t:c:e:w:" opt; do
 done
 
 if [ -z "$slack_url" ] || [ -z "$text" ] || [ -z "$color" ] || [ -z "$emoji"] || [ -z "$workflow" ]
+then
 usage
 fi
 
