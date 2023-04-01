@@ -8,7 +8,8 @@ send_slack() {
 echo "Inside Slack send function"
 echo 'payload={"text": "'${text}'", "color": "'${color}'", "icon_emoji": "'${emoji}'"}'
 echo "SLACK URL is: ${slack_url}"
-curl -X POST --data-urlencode 'payload={"text": "'${text}'", "color": "'${color}'", "icon_emoji": "'${emoji}'"}' "${slack_url}"
+#curl -X POST --data-urlencode 'payload={"text": "'${text}'", "color": "'${color}'", "icon_emoji": "'${emoji}'"}' "${slack_url}"
+curl -X POST -H 'Content-type: application/json' --data '{"text": "'${text}'", "color": "'${color}'", "icon_emoji": "'${emoji}'"}' "${slack_url}"
 }
 
 while getopts ":u:t:c:e:w:" opt; do
