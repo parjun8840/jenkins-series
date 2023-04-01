@@ -30,7 +30,7 @@ fi
 
 [ -z "${color}" ] && icon="#00a3e0"
 [ -z "${emoji}" ] && emoji=":tiger:"
-[ -z "$workflow" ] $$ workflow="TBD"
+[ -z "${workflow}" ] $$ workflow="TBD"
 
 send_slack
 send_slack() {
