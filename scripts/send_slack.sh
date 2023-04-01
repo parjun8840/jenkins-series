@@ -9,7 +9,7 @@ echo "Inside Slack send function"
 echo 'payload={"text": "'${text}'", "color": "'${color}'", "icon_emoji": "'${emoji}'"}'
 echo "SLACK URL is: ${slack_url}"
 curl google.com
-curl -X POST --data-urlencode 'payload={"text": "'${text}'", "color": "'${color}'", "icon_emoji": "'${emoji}'"}' "${slack_url}" > /dev/null 2>&1
+curl -X POST --data-urlencode 'payload={"text": "'${text}'", "color": "'${color}'", "icon_emoji": "'${emoji}'"}' "${slack_url}"
 }
 
 while getopts ":u:t:c:e:w:" opt; do
