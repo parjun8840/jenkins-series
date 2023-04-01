@@ -4,6 +4,9 @@ usage() {
   echo "usage: ${0##*/} -u <SLACK_URL> -t <TEXT> -c <COLOR> -e <EMOJI> -w <GITHUB_WOFKFLOW>"
   exit 1
 }
+send_slack() {
+curl -X POST --data-urlencode 'payload={"text": "'${text}'", "color": "'${color}'", "icon_emoji": "'${emoji}'"}' "${slack_url}" > /dev/null 2>&1
+}
 
 while getopts ":u:t:c:e:w:" opt; do
 
@@ -33,6 +36,4 @@ fi
 [ -z "${workflow}" ] && workflow="TBD"
 
 send_slack
-send_slack() {
-curl -X POST --data-urlencode 'payload={"text": "'${text}'", "color": "'${color}'", "icon_emoji": "'${emoji}'"}' "${slack_url}" > /dev/null 2>&1
-}
+
