@@ -23,13 +23,14 @@ while getopts ":u:t:c:e:w:" opt; do
   esac
 done
 
-if [ -z "$slack_url" ] || [ -z "$text" ] || [ -z "$color" ] || [ -z "$emoji"] || [ -z "$workflow" ]
+if [ -z "$slack_url" ] || [ -z "$text" ]
 then
 usage
 fi
 
 [ -z "${color}" ] && icon="#00a3e0"
 [ -z "${emoji}" ] && emoji=":tiger:"
+[ -z "$workflow" ] $$ workflow="TBD"
 
 send_slack
 send_slack() {
