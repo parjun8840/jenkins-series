@@ -33,7 +33,7 @@ inputs='{"ref": "main", "inputs": {"text": "'$text'"}}'
 
 echo "Executing GitHub Action"
 api_url=https://api.github.com/repos/parjun8840/gha01/actions/workflows/$workflow_id/dispatches
-curl -X POST \
+curl -k -X POST \
     -H "Accept: application/vnd.github+json" \
     -H "Authorization: Bearer $PERSONAL_TOKEN" \
     -H "X-GitHub-Api-Version: 2022-11-28" \
