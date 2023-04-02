@@ -27,6 +27,6 @@ then
 usage
 fi
 [ -z "${workflow}" ] && workflow="TBD"
-
+env
 send_slack
 
