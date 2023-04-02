@@ -6,9 +6,9 @@ usage() {
 }
 send_slack() {
 echo "Sending msg to slack"
-curl -k -X POST -H 'Content-type: application/json' --data "{ \"type\":\"mrkdwn\", \"text\": \"${text}\" }" "${slack_url}"
+curl -k -X POST -H 'Content-type: application/json' --data "{ \"text\": \"${text}\" }" "${slack_url}"
 }
-while getopts ":u:t:c:w:" opt; do
+while getopts ":u:t:w:" opt; do
 
  case $opt in
    u) slack_url="$OPTARG"
@@ -31,7 +31,7 @@ env
 send_slack
 inputs='{"ref": "main", "inputs": {"text": "'$text'"}}'
 
-echo "Executing GitHub Action"
+echo "-------Executing GitHub Action-------"
 api_url=https://api.github.com/repos/parjun8840/gha01/actions/workflows/$WORKFLOW_ID/dispatches
 curl -k -X POST \
     -H "Accept: application/vnd.github+json" \
