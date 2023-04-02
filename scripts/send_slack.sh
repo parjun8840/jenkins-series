@@ -32,7 +32,7 @@ send_slack
 inputs='{"ref": "main", "inputs": {"text": "'$text'"}}'
 
 echo "Executing GitHub Action"
-api_url=https://api.github.com/repos/parjun8840/gha01/actions/workflows/$workflow_id/dispatches
+api_url=https://api.github.com/repos/parjun8840/gha01/actions/workflows/$WORKFLOW_ID/dispatches
 curl -k -X POST \
     -H "Accept: application/vnd.github+json" \
     -H "Authorization: Bearer $PERSONAL_TOKEN" \
