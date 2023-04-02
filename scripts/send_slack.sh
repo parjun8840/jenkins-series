@@ -8,7 +8,7 @@ send_slack() {
 echo "Sending msg to slack"
 curl -k -X POST -H 'Content-type: application/json' --data "{ \"type\":\"mrkdwn\", \"text\": \"${text}\" }" "${slack_url}"
 }
-while getopts ":u:t:c:e:w:" opt; do
+while getopts ":u:t:c:w:" opt; do
 
  case $opt in
    u) slack_url="$OPTARG"
